@@ -1,0 +1,14 @@
+.side-bar__top
+  .side-bar__top__labels
+    .side-bar__top__labels_current-user
+      =current_user.name
+    .side-bar__top__labels_icons
+      .side-bar__top__labels_icons_edit
+        = link_to edit_user_path(current_user.id) do
+          %i.fa.fa-pencil
+      .side-bar__top__labels_icons_new
+        = link_to new_group_path do
+          %i.fa.fa-plus
+
+.side-bar__lists
+  = render partial: '/shared/group', collection: groups

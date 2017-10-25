@@ -1,0 +1,6 @@
+.side-bar__lists__item
+  .side-bar__lists__item_group-label
+    =link_to group.name, group_messages_path(group.id)
+  .side-bar__lists__item_message-label
+    / =group.messages.last.body
+    =group.last_message

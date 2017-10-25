@@ -1,0 +1,177 @@
+body{
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.main{
+  width: calc(100vw - 300px);
+  height: 100vh;
+  background-color: $main-contents-color;
+
+  &__top{
+    width: 100%;
+    height: $top-height;
+    // background-color: darken($main-contents-color, 10);
+    background-color: $main-contents-color;
+    // box-shadow: 0 1px 3px darken($main-contents-color, 30);
+    border-bottom: 1px dashed #eee;
+    display: flex;
+    position: relative;
+
+    &__group{
+      margin-top: 64px;
+      margin-left: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: $font-color;
+
+    }
+
+    &__group_members{
+      margin-left: 30px;
+      margin-top: 67px;
+      color: $font-color;
+
+    }
+
+    &__edit{
+      position: absolute;
+      top: 60px;
+      right: 30px;
+
+      &_box{
+        width: 65px;
+        height: 35px;
+        border: 1px solid $font-color;
+        border-radius: 3px;
+        // margin-top: 60px;
+        // margin-left: calc( 100vw - 840px);
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 35px;
+        text-align: center;
+        position: relative;
+        a{
+          color: $font-color;
+          text-decoration: none;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          position: absolute;
+        }
+        a:visited{
+          color: $font-color;
+        }
+      }
+    }
+  }
+
+  &__contents{
+    height: calc( 100vh - #{$top-height} - #{$post-height} );
+    overflow: scroll;
+
+    &__message{
+      padding: 10px 20px;
+      color: darken($font-color, 10);
+
+      &_body{
+
+      }
+    }
+
+  }
+
+  &__post{
+    width: calc(100vw - 300px);
+    height: $post-height;
+    background-color: darken($main-contents-color, 10);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    // position: relative;
+
+    &__forms{
+      // width: calc( 100vw - 400px );
+      height: 30px;
+      // position: absolute;
+      // top: 10px;
+      // left: 10px;
+      margin-top: 0px;
+      margin-left: 20px;
+      position: relative;
+
+      .input-form{
+        height: 40px;
+        width: calc(100vw - 428px);
+        padding-left: 10px;
+        border-style: none;
+        margin-top: 15px;
+        border-radius: 5px;
+      }
+      .input-form:focus{
+        outline: none;
+      }
+      .file-form{
+        display: none;
+        z-index: 10;
+        position: absolute;
+        top: 10px;
+        right: 120px;
+        width: 50px;
+        height: 50px;
+      }
+      .file-form-icon{
+          position: absolute;
+          top: 22px;
+          right: 127px;
+          font-size: 20px;
+          color: $font-color;
+          &:active{
+            color: darken( $font-color, 20 );
+          }
+      }
+
+      .submit{
+        border-style: none;
+        margin-left: 20px;
+        margin-top: 0px;
+        margin-bottom: 5px;
+        width: 60px;
+        height: 35px;
+        border-radius: 10px;
+        background-color: $font-color-orange;
+        box-shadow: 1px 4px darken( $font-color-orange , 7);
+        font-size: 13px;
+        font-weight: bold;
+        color: lighten($font-color, 50);
+        text-shadow: -1px -1px 3px 1px white;
+        cursor: pointer;
+
+
+    // display: inline-block;
+    // padding: 0.5em 1em;
+    // text-decoration: none;
+    // background: #668ad8;/*ボタン色*/
+    // color: #FFF;
+    // border-bottom: solid 4px #627295;
+    // border-radius: 3px;
+      }
+      .submit:focus{
+        outline: none;
+      }
+      .submit:active{
+        box-shadow: 0px 1px darken( $font-color-orange , 10);
+
+
+    // -ms-transform: translateY(4px);
+    // -webkit-transform: translateY(4px);
+    transform: translateY(2px);/*下に動く*/
+    // border-bottom: none;/*線を消す*/
+
+
+      }
+    }
+  }
+}

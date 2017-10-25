@@ -1,0 +1,22 @@
+.side-bar
+  =render partial: '/shared/side-bar', locals: { groups: @groups }
+
+.main
+  .main__top
+    .main__top__group
+      =@group.name
+    .main__top__group_members
+      =@group.members
+    .main__top__edit
+      .main__top__edit_box
+        =link_to 'EDIT', edit_group_path(@group.id)
+  .main__contents
+    =render partial: 'message', collection: @messages
+  .main__post
+    .main__post__forms
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, class: 'input-form'
+        = f.label :image, class: 'file-form-icon' do
+          %i.fa.fa-picture-o
+        = f.file_field :image, class: 'file-form'
+        = f.submit 'POST', class: 'submit'
