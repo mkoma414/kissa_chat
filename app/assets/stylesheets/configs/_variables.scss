@@ -12,3 +12,9 @@ $font-color-orange: #ff8c00;
 $top-height: 120px;
 $post-height: 70px;
 $test-height: 300px;
+
+.clearfix:after{
+  content: '';
+  clear: both;
+  display: block;
+}

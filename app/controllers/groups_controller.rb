@@ -19,9 +19,13 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
+    @members = @group.users.where.not(id: current_user.id)
+    # @members.delete(id: current_user.id)
+    # @members.map{|member|member.delete if member.id == current_user.id }
   end
 
   def update
+    # binding.pry
     @group = Group.find(params[:id])
     if @group.update(group_params)
       redirect_to root_path

@@ -21,7 +21,10 @@ class MessagesController < ApplicationController
     @messages = @group.messages
 
     if @message.save
-      redirect_to group_messages_path(params[:group_id])
+      respond_to do |format|
+        format.html { redirect_to group_messages_path(params[:group_id]) }
+        format.json
+      end
     else
       render 'index'
     end
