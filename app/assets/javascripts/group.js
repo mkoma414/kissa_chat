@@ -25,23 +25,6 @@ $(function(){
     return html;
   }
 
-  // function buildHTML_for_members(id, name){
-  //   html = `<div class = "searched_user", data-user-id = "${id}">
-  //             <div class = "searched_user_name">
-  //                 ${name}
-  //             </div>
-  //             <div class = "remove_user_btn">
-  //               削除
-  //             </div>
-  //             <input value=${id} name="group[user_ids][]" type="hidden" id="group_user_ids">
-  //           </div>
-  //         `
-  //   return html;
-  // }
-
-
-
-
 function buildHTML_for_members(id, name){
   html = `
           <div class='current-users clearfix'>
@@ -57,16 +40,11 @@ function buildHTML_for_members(id, name){
   return html;
 }
 
-
-
-
-
   $(document).on('click', '.add_user_btn', function(){
     var name = $(this).prev()[0].innerHTML;
     var id = $(this).parent().data('user-id');
 
     $(this).parent().remove();
-    // append_users_to_members(id, name);
 
     append_users_to_members(id, name);
 
@@ -83,7 +61,6 @@ function buildHTML_for_members(id, name){
   $('#chat_group_user').on('keyup', function(){
 
     var key = $('#chat_group_user').val();
-    console.log("keyup");
 
     $.ajax({
       url: '/users/search',
@@ -93,13 +70,15 @@ function buildHTML_for_members(id, name){
       },
       dataType: 'json',
     }).done(function(data){
-      console.log("done");
       append_users(data);
     }).fail(function(){
 
     })
-  })
+  });
 
-
-
+  if (document.URL.match("/messages")){
+    $messages = $('.main__contents__message:last-child')
+    console.log($messages.data('message-id'));
+  }
 })
+
