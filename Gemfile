@@ -24,6 +24,7 @@ gem 'rspec-rails'
 gem 'factory_girl_rails', "~> 4.4.1"
 gem 'rails-controller-testing'
 gem 'pry-byebug'
+gem 'therubyracer'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
