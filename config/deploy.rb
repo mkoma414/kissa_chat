@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.8.0'
+lock '3.10.0'
 
 set :application, 'kissa_chat'
 set :repo_url,  'git@github.com:mkoma414/kissa_chat.git'
